@@ -13,6 +13,8 @@
 		6E7830F01C85EF7800434B77 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7830EF1C85EF7800434B77 /* MapViewController.swift */; };
 		6E7830F41C8867EB00434B77 /* AddResturantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7830F31C8867EB00434B77 /* AddResturantController.swift */; };
 		6E7831181C8ADF7800434B77 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E7831161C8ADF7800434B77 /* FoodPin.xcdatamodeld */; };
+		6E93DCEA1CB696F6005599F0 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E93DCE91CB696F6005599F0 /* DiscoverTableViewController.swift */; };
+		6EAA389C1CB5711F00FECA64 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAA389B1CB5711F00FECA64 /* CloudKit.framework */; };
 		6EC9F6CC1C95A1E80083D273 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9F6CB1C95A1E80083D273 /* WalkthroughContentViewController.swift */; };
 		6EC9F6CE1C95A8860083D273 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9F6CD1C95A8860083D273 /* WalkthroughPageViewController.swift */; };
 		6EC9F6D11C99A92F0083D273 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC9F6CF1C99A92F0083D273 /* About.storyboard */; };
@@ -37,6 +39,9 @@
 		6E7830F31C8867EB00434B77 /* AddResturantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddResturantController.swift; sourceTree = "<group>"; };
 		6E7831171C8ADF7800434B77 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		6E7831191C8DC8E500434B77 /* FoodPin 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FoodPin 2.xcdatamodel"; sourceTree = "<group>"; };
+		6E93DCE91CB696F6005599F0 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		6EAA389A1CB570ED00FECA64 /* FoodPin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FoodPin.entitlements; sourceTree = "<group>"; };
+		6EAA389B1CB5711F00FECA64 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6EC9F6CB1C95A1E80083D273 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		6EC9F6CD1C95A8860083D273 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		6EC9F6D01C99A92F0083D273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7830EE1C85D4A500434B77 /* MapKit.framework in Frameworks */,
+				6EAA389C1CB5711F00FECA64 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +76,7 @@
 		F4AAE2AE1B7DAC29001D8E75 = {
 			isa = PBXGroup;
 			children = (
+				6EAA389B1CB5711F00FECA64 /* CloudKit.framework */,
 				6E7831161C8ADF7800434B77 /* FoodPin.xcdatamodeld */,
 				6E7830ED1C85D4A500434B77 /* MapKit.framework */,
 				F4AAE2B91B7DAC29001D8E75 /* FoodPin */,
@@ -88,6 +95,7 @@
 		F4AAE2B91B7DAC29001D8E75 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				6EAA389A1CB570ED00FECA64 /* FoodPin.entitlements */,
 				6E7830D21C849BD300434B77 /* Assets.xcassets */,
 				F4AAE2BA1B7DAC29001D8E75 /* AppDelegate.swift */,
 				F4AAE2BE1B7DAC29001D8E75 /* Main.storyboard */,
@@ -107,6 +115,7 @@
 				6EC9F6CD1C95A8860083D273 /* WalkthroughPageViewController.swift */,
 				6EC9F6D41C99AC9D0083D273 /* AboutTableViewController.swift */,
 				6E0D932D1CA19AC900513D88 /* WebViewController.swift */,
+				6E93DCE91CB696F6005599F0 /* DiscoverTableViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -142,9 +151,12 @@
 				TargetAttributes = {
 					F4AAE2B61B7DAC29001D8E75 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 5V5R5557JT;
+						DevelopmentTeam = CJGCJCDVR3;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -202,6 +214,7 @@
 				F4AAE2BB1B7DAC29001D8E75 /* AppDelegate.swift in Sources */,
 				6E0D932E1CA19AC900513D88 /* WebViewController.swift in Sources */,
 				6EE615FC1C7F4D3700C8C36C /* ReviewViewController.swift in Sources */,
+				6E93DCEA1CB696F6005599F0 /* DiscoverTableViewController.swift in Sources */,
 				6E7830F01C85EF7800434B77 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,11 +334,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodPin/FoodPin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = woodme.com;
+				PRODUCT_BUNDLE_IDENTIFIER = woodme.momento;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -335,11 +349,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodPin/FoodPin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = woodme.com;
+				PRODUCT_BUNDLE_IDENTIFIER = woodme.momento;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
