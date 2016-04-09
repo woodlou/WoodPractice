@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E0D932E1CA19AC900513D88 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D932D1CA19AC900513D88 /* WebViewController.swift */; };
-		6E3DB0331CB94D0A00610980 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DB0321CB94D0A00610980 /* CloudKit.framework */; };
+		6E3DB0351CB9643B00610980 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DB0341CB9643B00610980 /* CloudKit.framework */; };
 		6E7830D31C849BD300434B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7830D21C849BD300434B77 /* Assets.xcassets */; };
 		6E7830EE1C85D4A500434B77 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7830ED1C85D4A500434B77 /* MapKit.framework */; };
 		6E7830F01C85EF7800434B77 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7830EF1C85EF7800434B77 /* MapViewController.swift */; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		6E0D932D1CA19AC900513D88 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		6E3DB0321CB94D0A00610980 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6E3DB0341CB9643B00610980 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6E7830D21C849BD300434B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E7830ED1C85D4A500434B77 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6E7830EF1C85EF7800434B77 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7830EE1C85D4A500434B77 /* MapKit.framework in Frameworks */,
-				6E3DB0331CB94D0A00610980 /* CloudKit.framework in Frameworks */,
+				6E3DB0351CB9643B00610980 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 		F4AAE2AE1B7DAC29001D8E75 = {
 			isa = PBXGroup;
 			children = (
-				6E3DB0321CB94D0A00610980 /* CloudKit.framework */,
+				6E3DB0341CB9643B00610980 /* CloudKit.framework */,
 				6E7831161C8ADF7800434B77 /* FoodPin.xcdatamodeld */,
 				6E7830ED1C85D4A500434B77 /* MapKit.framework */,
 				F4AAE2B91B7DAC29001D8E75 /* FoodPin */,

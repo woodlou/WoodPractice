@@ -158,12 +158,12 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
         
         // Resize the image
         let originalImage = UIImage(data: restaurant.image!)!
-        let scalingFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1.0
-        let scaledImage = UIImage(data: restaurant.image!, scale: scalingFactor)!
+//        let scalingFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1.0
+//        let scaledImage = UIImage(data: restaurant.image!, scale: scalingFactor)!
         
         // Write the image to local file for temporary use
         let imageFilePath = NSTemporaryDirectory() + restaurant.name
-        UIImageJPEGRepresentation(scaledImage, 1)?.writeToFile(imageFilePath, atomically: true)
+        UIImageJPEGRepresentation(originalImage, 0.8)?.writeToFile(imageFilePath, atomically: true)
         
         // Create image asset for upload
         let imageFileURL = NSURL(fileURLWithPath: imageFilePath)
