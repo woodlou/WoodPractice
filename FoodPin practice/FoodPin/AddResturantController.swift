@@ -8,10 +8,9 @@
 
 import UIKit
 import CoreData
-import CloudKit
 
 
-class AddRestaurantController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddResturantController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet var imageView:UIImageView!
     @IBOutlet var nameTexxtField:UITextField!
     @IBOutlet var typeTextField:UITextField!
@@ -42,10 +41,9 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary){
                 let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .PhotoLibrary
-                imagePicker.delegate = self
-
                 
                 self.presentViewController (imagePicker, animated:true, completion:nil)
                 
@@ -55,26 +53,26 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String: AnyObject]){
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
         
-        let leadingConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
-        leadingConstraint.active = true
+        let leadingConstrict = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview , attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
+        leadingConstrict.active = true
         
-        let trailingConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
-        trailingConstraint.active = true
+        let trailingConstrict = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
+        trailingConstrict.active = true
         
-        let topConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
-        topConstraint.active = true
+        let topConstrict = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+        topConstrict.active = true
         
-        let bottomConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
-        bottomConstraint.active = true
+        let bottomConstrict = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        bottomConstrict.active = true
         
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     @IBAction func saveChange(sender:UIBarButtonItem){
         let name = nameTexxtField.text
@@ -122,11 +120,6 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
 //        print("Location:\(location)")
 //        print("Have U Been Here :\(isVisited)")
 //        
-        
-        
-        //保存到iCloud
-        saveRecordToCloud(restaurant)
-        
         //退出编辑界面
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -148,6 +141,7 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
     }
 
     
+<<<<<<< HEAD:FoodPin practice/FoodPin/AddRestaurantController.swift
     func saveRecordToCloud(restaurant:Restaurant!) -> Void {
         // Prepare the record to save
         let record = CKRecord(recordType: "Restaurant")
@@ -185,4 +179,80 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
             }
         })
     }
+=======
+    
+    
+
+>>>>>>> parent of e1b54fb... CloudKit:FoodPin practice/FoodPin/AddResturantController.swift
 }
+    
+    
+
+    // MARK: - Table view data source
+
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
+
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+
