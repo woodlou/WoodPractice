@@ -1,59 +1,57 @@
 //
-//  AddResturantController.swift
+//  AddRestaurantController.swift
 //  FoodPin
 //
-//  Created by wood lou on 16/3/3.
-//  Copyright © 2016年 AppCoda. All rights reserved.
+//  Created by Simon Ng on 31/8/15.
+//  Copyright © 2015 AppCoda. All rights reserved.
 //
 
 import UIKit
 import CoreData
 import CloudKit
 
-
-class AddRestaurantController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView:UIImageView!
-    @IBOutlet var nameTexxtField:UITextField!
+    
+    @IBOutlet var nameTextField:UITextField!
     @IBOutlet var typeTextField:UITextField!
     @IBOutlet var locationTextField:UITextField!
     @IBOutlet var phoneNumberTextField:UITextField!
     @IBOutlet var yesButton:UIButton!
     @IBOutlet var noButton:UIButton!
+    
     var isVisited = true
+    
     var restaurant:Restaurant!
-
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Table view data source
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary){
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .PhotoLibrary
                 imagePicker.delegate = self
-
                 
-                self.presentViewController (imagePicker, animated:true, completion:nil)
-                
+                self.presentViewController(imagePicker, animated: true, completion: nil)
             }
         }
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    // MARK: - UIImagePickerControllerDelegate methods
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
@@ -76,77 +74,64 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func saveChange(sender:UIBarButtonItem){
-        let name = nameTexxtField.text
+    // MARK: - Action methods
+    
+    @IBAction func save(sender:UIBarButtonItem) {
+        let name = nameTextField.text
         let type = typeTextField.text
         let location = locationTextField.text
         let phoneNumber = phoneNumberTextField.text
         
-        //确保必填信息完整
+        // Validate input fields
         if name == "" || type == "" || location == "" {
             let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
             return
-        
         }
         
-        //数据库哦开始啦
-        if let managedObjectContex = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
-            restaurant = NSEntityDescription.insertNewObjectForEntityForName("Restaurant", inManagedObjectContext: managedObjectContex) as! Restaurant
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+            restaurant = NSEntityDescription.insertNewObjectForEntityForName("Restaurant", inManagedObjectContext: managedObjectContext) as! Restaurant
             restaurant.name = name!
             restaurant.type = type!
             restaurant.location = location!
             restaurant.phoneNumber = phoneNumber!
             
-            
-            
-            if let restaurantImage = imageView.image{
+            if let restaurantImage = imageView.image {
                 restaurant.image = UIImagePNGRepresentation(restaurantImage)
             }
             restaurant.isVisited = isVisited
             
-            do{
-                try managedObjectContex.save()
-            }catch {
+            do {
+                try managedObjectContext.save()
+            } catch {
                 print(error)
                 return
             }
-            }
-
+        }
         
-        
-//        //打印日志
-//        print("Name:\(name)")
-//        print("Type:\(type)")
-//        print("Location:\(location)")
-//        print("Have U Been Here :\(isVisited)")
-//        
-        
-        
-        //保存到iCloud
+        // Save the record to iCloud
         saveRecordToCloud(restaurant)
         
-        //退出编辑界面
+        // Dismiss the view controller
         dismissViewControllerAnimated(true, completion: nil)
-        
-        
-        
     }
     
-    @IBAction func toogleBeHereButton(sender:UIButton){
+    @IBAction func toggleBeenHereButton(sender: UIButton) {
+        // Yes button clicked
         if sender == yesButton {
             isVisited = true
-            yesButton.backgroundColor = UIColor.redColor()
+            yesButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
             noButton.backgroundColor = UIColor.grayColor()
         } else if sender == noButton {
             isVisited = false
             yesButton.backgroundColor = UIColor.grayColor()
-            noButton.backgroundColor = UIColor.redColor()
+            noButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         }
-        
     }
-
+    
+    // MARK: - CloudKit Methods
     
     func saveRecordToCloud(restaurant:Restaurant!) -> Void {
         // Prepare the record to save
@@ -163,7 +148,7 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
         
         // Write the image to local file for temporary use
         let imageFilePath = NSTemporaryDirectory() + restaurant.name
-        UIImageJPEGRepresentation(scaledImage, 1)?.writeToFile(imageFilePath, atomically: true)
+        UIImageJPEGRepresentation(scaledImage, 0.8)?.writeToFile(imageFilePath, atomically: true)
         
         // Create image asset for upload
         let imageFileURL = NSURL(fileURLWithPath: imageFilePath)
