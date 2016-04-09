@@ -141,6 +141,7 @@ class AddResturantController: UITableViewController,UIImagePickerControllerDeleg
     }
 
     
+<<<<<<< HEAD:FoodPin practice/FoodPin/AddResturantController.swift
 <<<<<<< HEAD:FoodPin practice/FoodPin/AddRestaurantController.swift
     func saveRecordToCloud(restaurant:Restaurant!) -> Void {
         // Prepare the record to save
@@ -179,6 +180,11 @@ class AddResturantController: UITableViewController,UIImagePickerControllerDeleg
             }
         })
     }
+=======
+    
+    
+
+>>>>>>> parent of e1b54fb... CloudKit:FoodPin practice/FoodPin/AddResturantController.swift
 =======
     
     

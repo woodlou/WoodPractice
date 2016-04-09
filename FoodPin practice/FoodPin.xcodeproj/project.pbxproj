@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		6E0D932E1CA19AC900513D88 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D932D1CA19AC900513D88 /* WebViewController.swift */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		6E3DB0351CB9643B00610980 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DB0341CB9643B00610980 /* CloudKit.framework */; };
+=======
+>>>>>>> parent of e1b54fb... CloudKit
 =======
 >>>>>>> parent of e1b54fb... CloudKit
 		6E7830D31C849BD300434B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7830D21C849BD300434B77 /* Assets.xcassets */; };
@@ -38,7 +41,10 @@
 /* Begin PBXFileReference section */
 		6E0D932D1CA19AC900513D88 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		6E3DB0341CB9643B00610980 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+=======
+>>>>>>> parent of e1b54fb... CloudKit
 =======
 >>>>>>> parent of e1b54fb... CloudKit
 		6E7830D21C849BD300434B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +81,11 @@
 			files = (
 				6E7830EE1C85D4A500434B77 /* MapKit.framework in Frameworks */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				6E3DB0351CB9643B00610980 /* CloudKit.framework in Frameworks */,
+=======
+				6EAA389C1CB5711F00FECA64 /* CloudKit.framework in Frameworks */,
+>>>>>>> parent of e1b54fb... CloudKit
 =======
 				6EAA389C1CB5711F00FECA64 /* CloudKit.framework in Frameworks */,
 >>>>>>> parent of e1b54fb... CloudKit
@@ -89,7 +99,11 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				6E3DB0341CB9643B00610980 /* CloudKit.framework */,
+=======
+				6EAA389B1CB5711F00FECA64 /* CloudKit.framework */,
+>>>>>>> parent of e1b54fb... CloudKit
 =======
 				6EAA389B1CB5711F00FECA64 /* CloudKit.framework */,
 >>>>>>> parent of e1b54fb... CloudKit
