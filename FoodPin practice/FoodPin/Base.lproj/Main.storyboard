@@ -658,18 +658,18 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="yyY-ln-YlD">
                             <connections>
-                                <action selector="save:" destination="Z0T-eV-OMM" id="ghA-ij-btq"/>
+                                <action selector="saveChange:" destination="Z0T-eV-OMM" id="5AZ-k3-svN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="Gsm-4z-nCr" id="vUN-kd-e9M"/>
                         <outlet property="locationTextField" destination="cVf-Bo-9a3" id="EPg-in-g56"/>
-                        <outlet property="nameTextField" destination="uZa-vK-C2n" id="SpG-4K-gNW"/>
-                        <outlet property="noButton" destination="5NX-Vm-H5a" id="HqA-OT-a56"/>
+                        <outlet property="nameTexxtField" destination="uZa-vK-C2n" id="Foq-Sm-0vv"/>
+                        <outlet property="noButton" destination="5NX-Vm-H5a" id="DGp-SX-dfY"/>
                         <outlet property="phoneNumberTextField" destination="zhC-uc-sgd" id="ttl-hV-V5z"/>
                         <outlet property="typeTextField" destination="PDw-RA-mDD" id="HqU-Fp-nUR"/>
-                        <outlet property="yesButton" destination="6sr-rV-eWj" id="dAq-tJ-dsE"/>
+                        <outlet property="yesButton" destination="6sr-rV-eWj" id="Y9P-Vb-DRs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HN-xm-Vue" userLabel="First Responder" sceneMemberID="firstResponder"/>
